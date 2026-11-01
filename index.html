@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feline Companion Journal</title>
+    <!-- Google Fonts: Use elegant serif/sans-serif combination -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #3c3c3c; /* Dark charcoal for text */
+            --color-secondary: #a8a8a8; /* Medium gray for subtle text */
+            --color-accent: #d4af37; /* Muted Gold/Brass accent */
+            --color-background: #ffffff;
+            --color-light-bg: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--color-background);
+            color: var(--color-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+
+        /* Global Reset and Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: var(--color-background);
+            padding: 20px 0;
+            border-bottom: 1px solid #eeeeee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+        }
+
+        .nav-links a {
+            color: var(--color-primary);
+            text-decoration: none;
+            margin-left: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--color-light-bg);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        #hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        #hero p {
+            font-size: 1.3em;
+            color: var(--color-secondary);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-background);
+            padding: 12px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #c0a02e;
+            transform: translateY(-2px);
+        }
+
+        /* --- Section Styling --- */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            color: var(--color-primary);
+            border-bottom: 1px solid var(--color-accent);
+            display: inline-block;
+            width: fit-content;
+            padding-bottom: 5px;
+            margin: 0 auto 40px auto;
+        }
+        
+        /* Image Focus Grid */
+        .image-focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .media-card {
+            background-color: var(--color-light-bg);
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 300px; /* Taller for magazine feel */
+            background-size: cover;
+            background-position: center;
+            display: block;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-accent);
+            font-size: 1.3em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            margin-bottom: 0;
+            color: var(--color-secondary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+            border-top: 1px solid #eee;
+            background-color: var(--color-light-bg);
+            color: var(--color-secondary);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-links a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+            #hero h1 {
+                font-size: 2.5em;
+            }
+            .content-section {
+                padding: 50px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content container">
+            <div class="nav-brand">JOURNAL.CAT</div>
+            <div class="nav-links">
+                <a href="#origins">Origins</a>
+                <a href="#breeds">Breeds</a>
+                <a href="#care">Wellness</a>
+                <a href="#about">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h1>THE ART OF THE FELINE</h1>
+            <p>A curated exploration into the biology, culture, and unparalleled grace of the domestic cat.</p>
+            <a href="#origins" class="cta-button">BEGIN READING</a>
+        </div>
+    </section>
+
+    <!-- Origins Section -->
+    <section id="origins" class="content-section">
+        <div class="container">
+            <h2>// ANCESTRY & HABITAT</h2>
+            <div class="image-focus-grid">
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?wildcat,savanna');"></div>
+                    <div class="card-content">
+                        <h3>Primal Roots</h3>
+                        <p>Tracing back to ancient wild populations, the cat’s innate instincts remain perfectly preserved.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?cat,portrait,golden');"></div>
+                    <div class="card-content">
+                        <h3>The Companion Bond</h3>
+                        <p>Understanding the complex, almost symbiotic relationship developed between humans and cats.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?cat,eye,reflection');"></div>
+                    <div class="card-content">
+                        <h3>Visual Ecology</h3>
+                        <p>Examining the apex of feline vision—optimized for movement and low-light conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breeds Section -->
+    <section id="breeds" class="content-section" style="background-color: var(--color-light-bg);">
+        <div class="container">
+            <h2>// GENETIC VARIATIONS</h2>
+            <div class="image-focus-grid">
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?maine,coon');"></div>
+                    <div class="card-content">
+                        <h3>Maine Coon</h3>
+                        <p>The regal, flowing coat and massive frame define this gentle giant breed.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?siamese,blue');"></div>
+                    <div class="card-content">
+                        <h3>Siamese</h3>
+                        <p>Renowned for their striking coloration and vocal, emotive communication.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?british,shorthair');"></div>
+                    <div class="card-content">
+                        <h3>British Shorthair</h3>
+                        <p>Compact, powerful, and possessing a calm, steady demeanor suitable for any home.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Care Section -->
+    <section id="care" class="content-section">
+        <div class="container">
+            <h2>// WELLNESS PROTOCOLS</h2>
+            <div class="image-focus-grid">
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?cat,play');"></div>
+                    <div class="card-content">
+                        <h3>Playtime Structure</h3>
+                        <p>Engaging interactive play is not a luxury, but a vital component of mental health maintenance.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?cat,sleep');"></div>
+                    <div class="card-content">
+                        <h3>Rest & Recharge</h3>
+                        <p>Understanding sleep cycles: the power naps and deep rest periods are crucial to their balance.</p>
+                    </div>
+                </div>
+                <div class="media-card">
+                    <div class="card-image" style="background-image: url('https://source.unsplash.com/random/600x300/?cat,grooming');"></div>
+                    <div class="card-content">
+                        <h3>Grooming Rituals</h3>
+                        <p>Self-grooming keeps the coat immaculate and signals relaxation to their immediate environment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Feline Companion Journal &copy; 2025. Designed with elegance and respect for the subject. | Built using local resources.</p>
+    </footer>
+
+</body>
+</html>
